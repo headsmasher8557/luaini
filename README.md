@@ -37,3 +37,7 @@ _nsec: {
   note1="see example.ini if you're confused"
 }
 ```
+
+## Contributing
+
+Yes, I'm aware, it's only an ini file parser, but any potential optimizations are welcome! ~~Considering I only wrote this in around 25 minutes...~~
