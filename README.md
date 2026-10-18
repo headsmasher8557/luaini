@@ -40,4 +40,4 @@ _nsec: {
 
 ## Contributing
 
-Yes, I'm aware, it's only an ini file parser, but any potential optimizations are welcome! ~~Considering I only wrote this in around 25 minutes...~~
+Yes, I'm aware, it's only an ini file parser, but any potential optimizations are welcome!
