@@ -1,6 +1,6 @@
 ini = require("ini")
 
-function dump(z,i) -- free table dump function
+function dump(z,i)
 	local n = -2
 	local function f(t,i)
 		n = n + 1
