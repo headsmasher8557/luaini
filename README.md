@@ -18,10 +18,26 @@ ini.readfile("config.ini")
 
 ## Example
 
-This example is listed as `example.lua` and `example.ini` in the repository.
+Suppose you have the following ini file:
 
 ```
-$ lua example.lua
+note0=keys show up on _nsec if they were defined with no section, like this one
+note1="see example.ini if you're confused"
+
+[info]
+name=John Doe
+age=20
+country=USA
+note="Hello world!" ;quotes are optional for definining strings
+
+[moreinfo]
+foo=bar
+6=9
+```
+Running it through luaini would give you something like the following:
+
+```
+$ lua examples/example.lua
 moreinfo: {
   6=9
   foo="bar"
@@ -38,6 +54,8 @@ _nsec: {
 }
 ```
 
+See the examples folder.
+
 ## Contributing
 
-Yes, I'm aware, it's only an ini file parser, but any potential optimizations are welcome!
+*TODO: add CONTRIBUTING.md*
