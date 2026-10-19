@@ -58,4 +58,4 @@ See the examples folder.
 
 ## Contributing
 
-*TODO: add CONTRIBUTING.md*
+See [CONTRIBUTING.md](CONTRIBUTING.md).
