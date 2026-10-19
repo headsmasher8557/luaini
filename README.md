@@ -21,7 +21,7 @@ ini.readfile("config.ini")
 Suppose you have the following ini file:
 
 ```
-note0=keys show up on _nsec if they were defined with no section, like this one
+note0=keys show up on _ if they were defined with no section, like this one
 note1="see example.ini if you're confused"
 
 [info]
@@ -48,8 +48,8 @@ info: {
   age=20
   country="USA"
 }
-_nsec: {
-  note0="keys show up on _nsec if they were defined with no section, like this one"
+_: {
+  note0="keys show up on _ if they were defined with no section, like this one"
   note1="see example.ini if you're confused"
 }
 ```

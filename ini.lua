@@ -33,7 +33,10 @@ end
 ---@return vl any The Lua equivalent of the value.
 ---@see valmatchers
 local function ini_typeof(str)
-	local t,vl = "plain",str
+	if str == "true" or str == "false" then -- this check doesnt depend on type so just do it immediately
+		return "boolean", str == "true"
+	end
+	local t,vl = "plaintext",str
 	for i,v in pairs(valmatchers) do
 		local asd = string.match(str,v)
 		if asd then
@@ -45,12 +48,6 @@ local function ini_typeof(str)
 	if t == "number" then
 		vl = tonumber(vl)
 	end
-	if not t then
-		t = str == "true" and "boolean" or (str == "false" and "boolean")
-		if t then
-			vl = str == "true"
-		end
-	end
 	return t,vl
 end
 
@@ -61,24 +58,26 @@ function ini.read(data)
 	assert(data, "argument #1 missing or nil")
 	local out = {}
 	local nsec = {}
-	local weretheresection = false
 	local cur = nsec
-	local curn = ""
+	local includeUntitledSection = false
 	for line in string.gmatch(data,"[^\n]+") do -- read line by line
 		local t,vl = ini_line(string.gsub(line," *;.+", ""))
 		if t == "section" and vl[1] then
-			weretheresection = true
 			out[vl[1]] = out[vl[1]] or {}
 			cur = out[vl[1]]
-			curn = vl[1]
 		elseif t == "setting" and (#vl == 2) then
 			local index = vl[1]
 			local value = vl[2]
 			local tval,oval = ini_typeof(value)
 			cur[index] = oval
+			if cur == nsec then
+				includeUntitledSection = true
+			end
 		end
 	end
-	out._nsec = nsec
+	if includeUntitledSection then
+		out._ = nsec
+	end
 	return out
 end
 
