@@ -44,7 +44,7 @@ moreinfo: {
 }
 info: {
   name="John Doe"
-  note="I don't know what I'm doing anymore"
+  note="Hello world!"
   age=20
   country="USA"
 }

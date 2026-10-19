@@ -22,4 +22,4 @@ function dump(z,i)
 	f(z,i)
 end
 
-dump(ini.readfile("example.ini"))
+dump(ini.readfile("examples/example.ini"))
